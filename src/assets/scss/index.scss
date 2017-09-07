@@ -1,0 +1,13 @@
+@import "~normalize.css";
+@import "./common";
+
+html, body {
+  font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;;
+  font-size: 125% !important;
+  height: 100%;
+  overflow-y: auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
