@@ -48,10 +48,10 @@
 </template>
 
 <script>
-  import Topbar from '../topbar/topbar';
-  import PageList from '../page-list/page-list';
-  import Stage from '../stage/stage';
-  import AttrList from '../attr-list/attr-list';
+  import Topbar from './topbar';
+  import PageList from './page-list';
+  import Stage from './stage';
+  import AttrList from './attr-list';
 
   export default {
     components: {

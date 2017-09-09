@@ -1,5 +1,5 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import "../../assets/scss/_variables";
+  @import "../../assets/scss/variables";
 
   .topbar {
     font-size: 0.7rem;
