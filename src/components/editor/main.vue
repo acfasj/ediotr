@@ -10,12 +10,12 @@
     font-size: 0.7rem;
 
     .m-topbar {
-      height: 50px;
+      height: $topbarHeight;
     }
 
     .content {
       background: olivedrab;
-      height: calc(100% - 50px);
+      height: calc(100% - 60px);
 
       .m-page-list {
         width: 240px;
@@ -25,7 +25,7 @@
       .m-stage {
         position: absolute;
         left: 240px;
-        top: 50px;
+        top: $topbarHeight;
       }
 
       .m-attr-list {

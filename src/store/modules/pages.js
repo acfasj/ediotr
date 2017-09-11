@@ -1,9 +1,12 @@
 import * as types from '../mutation-types';
+import templates from '../../templates';
 
 const state = {
   pagesData: [],
   currentPage: 1,
   currentPageData: {},
+  checkedItems: [],
+  checkedItemDataOnlyOne: {},
 };
 
 const getters = {
@@ -13,6 +16,7 @@ const getters = {
 };
 
 const mutations = {
+  // pages
   [types.SELECT_PAGE](state, index) {
     state.currentPage = index + 1;
     state.currentPageData = state.pagesData[index];
@@ -35,6 +39,22 @@ const mutations = {
     }
     state.currentPageData = state.pagesData[state.currentPage - 1];
   },
+  // items in a page
+  [types.SELECT_ITEM](state, index) {
+    state.checkedItems.length = 0;
+    state.checkedItemDataOnlyOne = state.currentPageData.items[index];
+    state.checkedItems.push(index);
+  },
+  [types.ADD_TEXT](state) {
+    const index = state.currentPageData.items.length + 1;
+    const model = templates.text(index, 1, {});
+    state.currentPageData.items.push(model);
+  },
+  [types.CHANGE_TEXT](state, { index, html }) {
+    const oldHtml = state.currentPageData.items[index].content;
+    state.currentPageData.items[index].content = oldHtml.replace(/>.+</, `>${html}<`);
+    console.log(oldHtml.replace(/>.+</, `>${html}<`));
+  },
 
 };
 
@@ -52,6 +72,15 @@ const actions = {
     } else {
       commit(types.DELETE_PAGE, index);
     }
+  },
+  selectItem({ commit }, index) {
+    commit(types.SELECT_ITEM, index);
+  },
+  addText({ commit }) {
+    commit(types.ADD_TEXT);
+  },
+  changeText({ commit }, { index, html }) {
+    commit(types.CHANGE_TEXT, { index, html });
   },
 };
 
