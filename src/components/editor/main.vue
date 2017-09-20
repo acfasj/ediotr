@@ -1,7 +1,7 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import "../../assets/scss/variables";
 
-  .main {
+  #main {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,7 +14,7 @@
     }
 
     .content {
-      background: olivedrab;
+      background: #efefef;
       height: calc(100% - 60px);
 
       .m-page-list {
@@ -25,7 +25,12 @@
       .m-stage {
         position: absolute;
         left: 240px;
-        top: $topbarHeight;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 2px 2px 4px $mainBGColor,
+        -2px -2px 4px $mainBGColor,
+        2px -2px 4px $mainBGColor,
+        -2px 2px 4px $mainBGColor;
       }
 
       .m-attr-list {
@@ -37,13 +42,14 @@
 </style>
 
 <template>
-  <div class="main clear-fix">
+  <div id="main" class="clear-fix">
     <topbar class="m-topbar"></topbar>
     <div class="content">
       <page-list class="m-page-list fl"></page-list>
       <stage class="m-stage"></stage>
       <attr-list class="m-attr-list fr"></attr-list>
     </div>
+    <material-lib-pic></material-lib-pic>
   </div>
 </template>
 
@@ -52,6 +58,7 @@
   import PageList from './page-list';
   import Stage from './stage';
   import AttrList from './attr-list';
+  import MaterialLibPic from './material-lib-pic';
 
   export default {
     components: {
@@ -59,6 +66,7 @@
       PageList,
       Stage,
       AttrList,
+      MaterialLibPic,
     },
   };
 </script>

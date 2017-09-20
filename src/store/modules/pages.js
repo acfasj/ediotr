@@ -23,6 +23,7 @@ const mutations = {
   },
   [types.ADD_PAGE](state) {
     state.pagesData.push({
+      main: { background: '#fff' },
       items: [],
     });
     state.currentPage = state.pagesData.length;
@@ -41,19 +42,33 @@ const mutations = {
   },
   // items in a page
   [types.SELECT_ITEM](state, index) {
-    state.checkedItems.length = 0;
-    state.checkedItemDataOnlyOne = state.currentPageData.items[index];
-    state.checkedItems.push(index);
+    let realIndex = index;
+    if (index === undefined) {
+      realIndex = state.currentPageData.items.length - 1;
+    }
+    state.checkedItems = [];
+    state.checkedItemDataOnlyOne = state.currentPageData.items[realIndex];
+    state.checkedItems.push(realIndex);
   },
   [types.ADD_TEXT](state) {
-    const index = state.currentPageData.items.length + 1;
-    const model = templates.text(index, 1, {});
+    const index = state.currentPageData.items.length - 1;
+    const model = templates.text(index, {});
     state.currentPageData.items.push(model);
   },
   [types.CHANGE_TEXT](state, { index, html }) {
     const oldHtml = state.currentPageData.items[index].content;
     state.currentPageData.items[index].content = oldHtml.replace(/>.+</, `>${html}<`);
     console.log(oldHtml.replace(/>.+</, `>${html}<`));
+  },
+  [types.ADD_PIC](state, { src, type }) {
+    if (type === 'pic') {
+      state.checkedItems = [];
+      const index = state.currentPageData.items.length - 1;
+      const model = templates.pic(index, { src });
+      state.currentPageData.items.push(model);
+    } else if (type === 'bg') {
+      state.currentPageData.main.background = `#fff url('${src}') center center / contain no-repeat`;
+    }
   },
 
 };
@@ -81,6 +96,13 @@ const actions = {
   },
   changeText({ commit }, { index, html }) {
     commit(types.CHANGE_TEXT, { index, html });
+  },
+  addPic({ commit }, { src, type }) {
+    commit(types.ADD_PIC, { src, type });
+    commit(types.HIDE_MATERIAL_LIB_PIC);
+    if (type === 'pic') {
+      commit(types.SELECT_ITEM);
+    }
   },
 };
 

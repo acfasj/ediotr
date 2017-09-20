@@ -5,8 +5,6 @@ export default {
   bind(el) {
     console.log('进来edit text了');
     const $el = $(el);
-    console.log($el);
-    console.log($el instanceof $);
     $el.on('dblclick', () => {
       const itemIndex = store.state.pages.checkedItems[0];
       console.log('双击有执行吗');

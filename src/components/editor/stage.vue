@@ -2,12 +2,14 @@
   .stage-wrapper {
     background: skyblue;
     #stage {
-      background: pink;
+      background: #fff;
       width: 960px;
       height: 540px;
 
       .content {
         cursor: move;
+        width: 100%;
+        height: 100%;
       }
 
       .edit_mode_cont {
@@ -23,7 +25,7 @@
         border: 1px dashed #585858;
         .edit_mode_layer {
           position: relative;
-          z-index: 800;
+          z-index: 9999999;
           -webkit-user-select: none;
           -webkit-user-drag: none;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -54,13 +56,14 @@
 
 <template>
   <div class="stage-wrapper">
-    <div id="stage" v-drag-item>
+    <div id="stage" v-drag-item :style="{ background: currentPageData.main.background }">
       <div v-for="(item, index) in currentPageData.items"
            :class="item.class"
            :style="item.style"
            :type="item.type"
            @mousedown="selectItem(index)"
-           v-edit-text-item>
+           v-edit-text-item
+           v-change-size>
         <div class="content" v-html="item.content"></div>
         <div class="edit_mode_cont">
           <div class="edit_mode_layer">
@@ -83,6 +86,7 @@
   import { mapGetters, mapActions } from 'vuex';
   import DragItem from '../../directives/drag-item';
   import EditTextItem from '../../directives/edit-text-item';
+  import ChangeSize from '../../directives/change-size';
 
   export default {
     data() {
@@ -95,6 +99,7 @@
     directives: {
       DragItem,
       EditTextItem,
+      ChangeSize,
     },
     computed: {
       ...mapGetters([

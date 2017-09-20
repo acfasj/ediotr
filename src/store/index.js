@@ -6,8 +6,19 @@ import actions from './actions';
 
 Vue.use(Vuex);
 
+const getters = {
+  materialLibPicObj: state => state.materialLibPicObj,
+};
+
 export default new Vuex.Store({
-  state: {},
+  state: {
+    materialLibPicObj: {
+      show: false,
+      msg: '素材库',
+      type: 'pic',
+    },
+  },
+  getters,
   mutations,
   actions,
   modules: {

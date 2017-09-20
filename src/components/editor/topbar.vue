@@ -62,8 +62,11 @@
 
       <div class="items">
         <ul>
-          <li @click.stop="addText"><i class="icon fa fa-font"></i><p class="text">文字</p></li>
-          <li><i class="icon fa fa-image"></i><p class="text">图片</p></li>
+          <li @click="addText"><i class="icon fa fa-font"></i><p class="text">文字</p></li>
+          <li @click="materialLibPic({ show:true,msg:'插入图片',type:'pic' })">
+            <i class="icon fa fa-image"></i><p class="text">图片</p></li>
+          <li @click="materialLibPic({ show:true,msg:'插入背景',type:'bg' })">
+            <i class="icon fa fa-th-large"></i><p class="text">背景</p></li>
         </ul>
       </div>
 
@@ -86,6 +89,8 @@
     methods: {
       ...mapActions([
         'addText',
+        'materialLibPic',
+        'hideMaterialLibPic',
       ]),
     },
   };

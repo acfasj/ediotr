@@ -35,5 +35,13 @@ export default {
       selectItem.style = resultStr;
     }
   },
+  [types.MATERIAL_LIB_PIC](state, params) {
+    state.materialLibPicObj.show = params.show;
+    state.materialLibPicObj.msg = params.msg || '素材库';
+    state.materialLibPicObj.type = params.type || 'pic';
+  },
+  [types.HIDE_MATERIAL_LIB_PIC](state) {
+    state.materialLibPicObj.show = false;
+  },
 };
 
