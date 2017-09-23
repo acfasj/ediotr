@@ -3,7 +3,7 @@ import * as types from './mutation-types';
 export default {
   [types.SET_STYLE](state, { index, params, isIn }) {
     const selectItem = state.pages.currentPageData.items[index];
-    const str = isIn ? selectItem.content.match(/style="([\s\S]+?)"/)[1] : selectItem.style;
+    const str = isIn ? selectItem.content.match(/style='([\s\S]+)'/)[1] : selectItem.style;
     const arr1 = str.split(';');
     const result = {};
 
@@ -30,7 +30,7 @@ export default {
     });
 
     if (isIn) {
-      selectItem.content = selectItem.content.replace(/style="([\s\S]+?)"/, `style="${resultStr}"`);
+      selectItem.content = selectItem.content.replace(/style='([\s\S]+)'/, `style='${resultStr}'`);
     } else {
       selectItem.style = resultStr;
     }

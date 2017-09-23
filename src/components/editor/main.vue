@@ -54,6 +54,8 @@
 </template>
 
 <script>
+//  import $ from 'jquery';
+//  import store from '../../store';
   import Topbar from './topbar';
   import PageList from './page-list';
   import Stage from './stage';
@@ -61,6 +63,19 @@
   import MaterialLibPic from './material-lib-pic';
 
   export default {
+    created() {
+//      $(document).on('click', (event) => {
+//        const obj = $(event.target);
+//        console.log(obj);
+//        console.log(obj.parents('#attr-list'));
+//        if (obj.parents('#stage').length === 0 &&
+//            obj.parents('#attr-list').length !== 0) {
+//          store.dispatch({
+//            type: 'clearCheckedItems',
+//          });
+//        }
+//      });
+    },
     components: {
       Topbar,
       PageList,

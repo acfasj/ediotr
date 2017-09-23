@@ -13,6 +13,8 @@ const getters = {
   currentPage: state => state.currentPage,
   currentPageData: state => state.currentPageData,
   pagesData: state => state.pagesData,
+  currentItemData: state => state.checkedItemDataOnlyOne,
+  checkedItems: state => state.checkedItems,
 };
 
 const mutations = {
@@ -49,6 +51,13 @@ const mutations = {
     state.checkedItems = [];
     state.checkedItemDataOnlyOne = state.currentPageData.items[realIndex];
     state.checkedItems.push(realIndex);
+  },
+  [types.DELETE_ITEM](state, index) {
+    state.checkedItems = [];
+    state.currentPageData.items.splice(index, 1);
+  },
+  [types.CLEAR_CHECKED_ITEMS](state) {
+    state.checkedItems = [];
   },
   [types.ADD_TEXT](state) {
     const index = state.currentPageData.items.length - 1;
@@ -90,6 +99,12 @@ const actions = {
   },
   selectItem({ commit }, index) {
     commit(types.SELECT_ITEM, index);
+  },
+  deleteItem({ commit }, index) {
+    commit(types.DELETE_ITEM, index);
+  },
+  clearCheckedItems({ commit }) {
+    commit(types.CLEAR_CHECKED_ITEMS);
   },
   addText({ commit }) {
     commit(types.ADD_TEXT);

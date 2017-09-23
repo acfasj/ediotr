@@ -1,20 +1,21 @@
 export default {
   text(index, params) {
     return {
-      id: `item_${index + 1}`,
+      id: index,
       type: 'text',
       style: `z-index: ${(index + 1) * 10};
               width: 100px;
               position: absolute;
               top: 0;
               left: 0;
-              font-size: 16px
+              font-size: 16px;
               box-sizing: border-box;`.replace(/\s{2,}/g, ''),
       class: params.className ? params.className : '',
       attr: {},
       content: `<div style='display: block;
                             width: 100%;
                             height: 100%;
+                            user-select: none;
                             box-sizing: border-box;
                             background-color: rgba(0,0,0,0);
                             box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
@@ -25,15 +26,14 @@ export default {
   },
   pic(index, params) {
     return {
-      id: `item_${index + 1}`,
+      id: index,
       type: 'pic',
       style: `z-index: ${(index + 1) * 10};
               width: 200px;
-              user-select: none;
               position: absolute;
               top: 0;
               left: 0;
-              font-size: 16px
+              font-size: 16px;
               box-sizing: border-box;`.replace(/\s{2,}/g, ''),
       class: params.className ? params.className : '',
       attr: {},

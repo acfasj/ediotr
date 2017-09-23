@@ -65,7 +65,7 @@
            v-edit-text-item
            v-change-size>
         <div class="content" v-html="item.content"></div>
-        <div class="edit_mode_cont">
+        <div class="edit_mode_cont" v-show="checkedItems[0] === index">
           <div class="edit_mode_layer">
             <div class="edit_mode edit_mode_radius_t_l"></div>
             <div class="edit_mode edit_mode_radius_t_m"></div>
@@ -93,9 +93,6 @@
       return {
       };
     },
-    created() {
-      console.log(DragItem, '这是drag item');
-    },
     directives: {
       DragItem,
       EditTextItem,
@@ -104,6 +101,7 @@
     computed: {
       ...mapGetters([
         'currentPageData',
+        'checkedItems',
       ]),
     },
     methods: {

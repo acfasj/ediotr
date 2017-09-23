@@ -6,6 +6,7 @@ export const DELETE_PAGE = 'DELETE_PAGE';
 // items
 export const SELECT_ITEM = 'SELECT_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const CLEAR_CHECKED_ITEMS = 'CLEAR_CHECKED_ITEMS';
 
 export const ADD_TEXT = 'ADD_TEXT';
 export const CHANGE_TEXT = 'CHANGE_TEXT';
