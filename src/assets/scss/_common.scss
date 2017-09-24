@@ -44,5 +44,40 @@ ul {
   margin: 0;
 }
 
-/* label buttons */
+/* hyperlink */
+a {
+  text-decoration: none;
+  color: #000;
+}
 
+/* buttons */
+button {
+  cursor: pointer;
+  border: none;
+}
+button:focus {
+  outline: none;
+}
+
+/* type area 版心 */
+.type-area {
+  width: 1280px;
+  padding: 0 90px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* show and hide */
+.hidden-v {
+  visibility: hidden;
+}
+.show-v {
+  visibility: visible;
+}
+
+.hidden-d {
+  display: none;
+}
+.show-d {
+  display: block;
+}

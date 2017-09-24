@@ -1,10 +1,17 @@
 @import "~normalize.css";
 @import "./common";
 @import "~font-awesome/css/font-awesome.css";
+@import "~animate.css";
 
-html, body {
+html {
   font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;;
   font-size: 125% !important;
   height: 100%;
+}
+
+body {
+  font-size: 0.7em;
+  color: #000;
+  background: #f4f5f5;
 }
 
