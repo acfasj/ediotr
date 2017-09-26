@@ -65,7 +65,7 @@
     <div id="material-lib-pic">
       <div class="upload-img">
         <label for="upload" class="upload-btn">上传图片</label>
-        <input type="file" multiple id="upload">
+        <input type="file" multiple name="userfile[]" id="upload" @change="filesChange($event)">
         <i @click="hideMaterialLibPic" class="fa fa-close fr"></i>
       </div>
 
@@ -81,6 +81,8 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex';
+  import $ from 'jquery';
+  import APP_URL from '@/app-url';
 
   export default {
     data() {
@@ -91,13 +93,6 @@
           'static/images/cloth1.jpg',
           'static/images/cloth2.jpg',
           'static/images/cloth3.jpg',
-          'static/images/cloth4.jpg',
-          'static/images/cloth4.jpg',
-          'static/images/cloth4.jpg',
-          'static/images/cloth4.jpg',
-          'static/images/cloth4.jpg',
-          'static/images/cloth4.jpg',
-          'static/images/cloth4.jpg',
         ],
       };
     },
@@ -111,6 +106,28 @@
         'hideMaterialLibPic',
         'addPic',
       ]),
+      filesChange(e) {
+        const vm = this;
+        const formData = new FormData();
+        const files = Array.from(e.target.files);
+        files.forEach((f, i) => {
+          formData.append(`userfile[${i}]`, f);
+        });
+
+        $.ajax({
+          url: `${APP_URL}/admin/upload.php`,
+          type: 'POST',
+          cache: false,
+          data: formData,
+          processData: false,
+          contentType: false,
+        }).done((res) => {
+          let uploadArr = res.data.pictureSrc;
+          uploadArr = uploadArr.map(url => `${APP_URL}/${url}`);
+          vm.imgList = vm.imgList.concat(uploadArr);
+        }).fail();
+      },
+
     },
   };
 </script>
