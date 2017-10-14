@@ -47,7 +47,11 @@ ul {
 /* hyperlink */
 a {
   text-decoration: none;
-  color: #000;
+  color: #8590a6;
+  cursor: pointer;
+}
+a:hover {
+  color: #175199;
 }
 
 /* buttons */
@@ -80,4 +84,28 @@ button:focus {
 }
 .show-d {
   display: block;
+}
+
+/* modal */
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* animations */
+@keyframes up-and-down {
+  from {margin-top:0;}
+  to {margin-top:50px;}
 }

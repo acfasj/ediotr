@@ -70,7 +70,6 @@
       </div>
 
       <div class="images">
-        <!--<img src="~@/assets/images/mountain.jpg" alt="">-->
         <div v-for="item in imgList" @click="addPic({ src: item,  type: materialLibPicObj.type})" class="img-item">
           <img :src="item" alt="">
         </div>

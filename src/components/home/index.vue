@@ -2,7 +2,7 @@
   @import "../../assets/scss/mixins";
 
   .index {
-    @include background('../../assets/images/bg.jpg')
+    @include background('../../assets/images/bg.jpg');
     background-attachment: fixed;
 
   }
@@ -25,7 +25,7 @@
   /* banner */
   .banner {
     position: relative;
-    height: 480px;
+    height: 560px;
     @include background('../../assets/images/index-bg.png');
 
     .type-area {
