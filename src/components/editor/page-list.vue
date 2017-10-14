@@ -3,11 +3,12 @@
 
   .page-list {
     position: relative;
-    background: #fff;
+    background: #f7f7f7;
+    border-right: 1px solid rgb(170, 170, 170);
 
     .title {
       height: 50px;
-      background: $activeColor;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.15);
       text-align: center;
       padding: 14px;
       span {
@@ -47,10 +48,17 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      height: 50px;
-      padding: 14px;
+      height: 60px;
+      padding: 16px;
       text-align: center;
-      background: $mainBGColor;
+      box-shadow: 0 -1px 1px rgba(0,0,0,0.15);
+      background: #f7f7f7;
+      button {
+        padding: 8px 20px;
+        border-radius: 2px;
+        color: #fff;
+        background: linear-gradient(324deg,#55e588,#4daaff);;
+      }
     }
   }
 </style>

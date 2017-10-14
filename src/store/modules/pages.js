@@ -67,7 +67,6 @@ const mutations = {
   [types.CHANGE_TEXT](state, { index, html }) {
     const oldHtml = state.currentPageData.items[index].content;
     state.currentPageData.items[index].content = oldHtml.replace(/>.+</, `>${html}<`);
-    console.log(oldHtml.replace(/>.+</, `>${html}<`));
   },
   [types.ADD_PIC](state, { src, type }) {
     if (type === 'pic') {

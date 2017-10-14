@@ -2,14 +2,17 @@
   @import "../../assets/scss/variables";
 
   .topbar {
-    font-size: 0.7rem;
-    background: $mainBGColor;
     position: relative;
+    font-size: 0.7rem;
+    background: #283341;
+    border-bottom: 1px solid rgba(30,35,42,.06);
+    box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
 
-    .logo {
-      h1 {
-        font-size: 1rem;
-      }
+    .back {
+      display: flex;
+      height: 60px;
+      align-items: center;
+      padding-left: 20px;
     }
 
     .items {
@@ -37,7 +40,7 @@
             font-size: 0.6rem;
           }
           &:hover {
-            background: #555D7F;
+            background: rgba(40, 51, 65, 0.47);
           }
         }
       }
@@ -56,8 +59,8 @@
 <template>
   <div class="topbar">
     <nav class="clear-fix">
-      <div class="logo fl">
-        <h1 class="vertical-middle">logo</h1>
+      <div class="back fl">
+        <button type="button" @click="back">返回</button>
       </div>
 
       <div class="items">
@@ -92,6 +95,9 @@
         'materialLibPic',
         'hideMaterialLibPic',
       ]),
+      back() {
+        this.$router.go(-1);
+      },
     },
   };
 </script>

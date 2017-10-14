@@ -14,7 +14,7 @@
     }
 
     .content {
-      background: #efefef;
+      background: #efefef url("../../assets/images/canvas_bg.jpg") repeat ;
       height: calc(100% - 60px);
 
       .m-page-list {
@@ -24,17 +24,14 @@
 
       .m-stage {
         position: absolute;
-        left: 240px;
+        left: 260px;
         top: 50%;
         transform: translateY(-50%);
-        box-shadow: 2px 2px 4px $mainBGColor,
-        -2px -2px 4px $mainBGColor,
-        2px -2px 4px $mainBGColor,
-        -2px 2px 4px $mainBGColor;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.15);
       }
 
       .m-attr-list {
-        width: calc(100% - 240px - 960px);
+        width: calc(100% - 280px - 960px);
         height: 100%;
       }
     }

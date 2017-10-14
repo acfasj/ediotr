@@ -2,15 +2,15 @@
   @import "../../assets/scss/variables";
 
   #attr-list {
-    background: slateblue;
+    background: rgb(247, 247, 247);
+    border-left: 1px solid rgb(170, 170, 170);
 
     .title {
       height: 50px;
-      background: $activeColor;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.15);
       text-align: center;
       padding: 14px;
       span {
-        color: #fff;
         line-height: 22px;
       }
     }
